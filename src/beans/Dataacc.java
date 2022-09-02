@@ -3,9 +3,12 @@ package beans;
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 
+// need jna-5.12.1.jar
+// need jna-jpms-5.12.1.jar
+
 public interface Dataacc extends Library {
 	
-	//@SuppressWarnings("deprecation")
+	@SuppressWarnings("deprecation")
 	Dataacc INSTANCE = (Dataacc) Native.loadLibrary("dataacc.dll", Dataacc.class);
 
 	//void display(String g);
@@ -17,10 +20,10 @@ public interface Dataacc extends Library {
 	// DLL_EXPORT void dlldataacc_InitTrace( const char* nomfichier );
 	void dlldataacc_InitTrace( String nomfichier );
 
-	// DLL_EXPORT int ConnectXR_compact( void );  // utilisé par LCO
+	// DLL_EXPORT int ConnectXR_compact( void );  // utilisï¿½ par LCO
 	int ConnectXR_compact();
 
-	// DLL_EXPORT void DisconnectXR();  // utilisé par LCO
+	// DLL_EXPORT void DisconnectXR();  // utilisï¿½ par LCO
 	void DisconnectXR();
 }
 
